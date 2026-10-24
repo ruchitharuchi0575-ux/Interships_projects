@@ -1,0 +1,25 @@
+# Where Is My Train Executive KPI Tree
+
+## 1. User & Rider Volume (Adoption & Activity)
+├── Total Daily Active Users (DAU) and Monthly Active Users (MAU)
+├── New App Installs & Organic Growth Rate (%)
+├── Session Frequency (Average checks per user per day)
+└── Route Search Volume (Total train status queries per day)
+
+## 2. Peak Share & Usage Concentration (Traffic Patterns)
+├── Peak Commute Share (%) 
+│   ├── Morning Peak Hour Queries (7:00 AM – 11:00 AM)
+│   └── Evening Peak Hour Queries (5:00 PM – 9:00 PM)
+├── Festive / Holiday Season Surge Factor (% increase during Diwali, Pongal, etc.)
+└── High-Demand Corridor Concentration (Top 10 most queried railway zones or routes)
+
+## 3. Revenue Proxies & Monetization (Value & Engagement)
+├── In-App Advertisement Monetization Proxies
+│   ├── Ad Impressions per Session
+│   └── Average Click-Through Rate (CTR) on Banner or Interstitial Ads
+├── Partner Ecosystem & Ticketing Referral Proxies
+│   ├── Outbound Clicks to Partner Ticketing/Booking Platforms (IRCTC partners)
+│   └── Booking Conversion Rate (%) from App Searches
+└── Feature Engagement Proxies
+    ├── Offline Network Cell-Tower Tracking Usage (%)
+    └── PNR Status Check Frequency per User
