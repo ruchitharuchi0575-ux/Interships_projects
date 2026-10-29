@@ -1,0 +1,1050 @@
+DuckDB v2.0.0 (Cyanoptera)
+Enter ".help" for usage hints.
+memory D SELECT 1;
+┌───────┐
+│   1   │
+│ int32 │
+├───────┤
+│     1 │
+└───────┘
+memory D SELECT * FROM read_csv_auto('C:/Users/DELL/Documents/retail_kpi_pack.csv') LIMIT 10;
+┌────────────┬────────────────┐
+│ Row Labels │ Sum of Revenue │
+│  varchar   │     double     │
+├────────────┼────────────────┤
+│ 0          │      199142.49 │
+│ 18102      │       79561.04 │
+│ 14156      │       58557.67 │
+│ 13694      │       34815.23 │
+│ 14646      │       25022.91 │
+│ 17850      │       15480.18 │
+│ 15061      │       14756.02 │
+│ 15311      │       13222.23 │
+│ 16029      │       13015.52 │
+│ 17511      │        12815.9 │
+└────────────┴────────────────┘
+  10 rows           2 columns
+memory D DESCRIBE SELECT * FROM read_csv_auto('C:/Users/DELL/Documents/retail_kpi_pack.csv');
+┌────────────────────────┐
+│        Describe        │
+│                        │
+│ Row Labels     varchar │
+│ Sum of Revenue double  │
+└────────────────────────┘
+memory D SELECT *
+         FROM read_csv_auto('C:/Users/DELL/Documents/retail_transactions.csv')
+         LIMIT 10;
+┌─────────┬───────────┬──────────────────────────┬──────────┬──────────────────┬────────┬─────────────┬────────────────┐
+│ Invoice │ StockCode │       Description        │ Quantity │   InvoiceDate    │ Price  │ Customer ID │    Country     │
+│ varchar │  varchar  │         varchar          │  int64   │     varchar      │ double │    int64    │    varchar     │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536365  │ 85123A    │ WHITE HANGING HEART T-LI │        6 │ 01-12-2010 08:26 │   2.55 │       17850 │ United Kingdom │
+│         │           │ GHT HOLDER               │          │                  │        │             │                │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536365  │ 71053     │ WHITE METAL LANTERN      │        6 │ 01-12-2010 08:26 │   3.39 │       17850 │ United Kingdom │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536365  │ 84406B    │ CREAM CUPID HEARTS COAT  │        8 │ 01-12-2010 08:26 │   2.75 │       17850 │ United Kingdom │
+│         │           │ HANGER                   │          │                  │        │             │                │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536365  │ 84029G    │ KNITTED UNION FLAG HOT W │        6 │ 01-12-2010 08:26 │   3.39 │       17850 │ United Kingdom │
+│         │           │ ATER BOTTLE              │          │                  │        │             │                │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536365  │ 84029E    │ RED WOOLLY HOTTIE WHITE  │        6 │ 01-12-2010 08:26 │   3.39 │       17850 │ United Kingdom │
+│         │           │ HEART.                   │          │                  │        │             │                │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536365  │ 22752     │ SET 7 BABUSHKA NESTING B │        2 │ 01-12-2010 08:26 │   7.65 │       17850 │ United Kingdom │
+│         │           │ OXES                     │          │                  │        │             │                │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536365  │ 21730     │ GLASS STAR FROSTED T-LIG │        6 │ 01-12-2010 08:26 │   4.25 │       17850 │ United Kingdom │
+│         │           │ HT HOLDER                │          │                  │        │             │                │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536366  │ 22633     │ HAND WARMER UNION JACK   │        6 │ 01-12-2010 08:28 │   1.85 │       17850 │ United Kingdom │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536366  │ 22632     │ HAND WARMER RED POLKA DO │        6 │ 01-12-2010 08:28 │   1.85 │       17850 │ United Kingdom │
+│         │           │ T                        │          │                  │        │             │                │
+├─────────┼───────────┼──────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536368  │ 22960     │ JAM MAKING SET WITH JARS │        6 │ 01-12-2010 08:34 │   4.25 │       13047 │ United Kingdom │
+└─────────┴───────────┴──────────────────────────┴──────────┴──────────────────┴────────┴─────────────┴────────────────┘
+  10 rows                                                                                                    8 columns
+memory D
+memory D SELECT
+             ROUND(SUM(Quantity * Price), 2) AS total_revenue
+         FROM read_csv_auto('C:/Users/DELL/Documents/retail_transactions.csv');
+┌────────────────┐
+│ total_revenue  │
+│     double     │
+├────────────────┤
+│   9747765.93   │
+│ (9.75 million) │
+└────────────────┘
+memory D
+memory D SELECT
+             COUNT(DISTINCT Invoice) AS total_orders,
+             SUM(Quantity) AS total_quantity,
+             COUNT(*) AS total_transaction_lines
+         FROM read_csv_auto('C:/Users/DELL/Documents/retail_transactions.csv');
+┌──────────────┬────────────────┬─────────────────────────┐
+│ total_orders │ total_quantity │ total_transaction_lines │
+│    int64     │     int128     │          int64          │
+├──────────────┼────────────────┼─────────────────────────┤
+│        25900 │        5176451 │                  541910 │
+└──────────────┴────────────────┴─────────────────────────┘
+memory D
+memory D SELECT
+             COUNT(*) AS total_rows,
+             COUNT(*) FILTER (
+                 WHERE starts_with(Invoice, 'C')
+             ) AS cancelled_invoice_lines,
+             COUNT(*) FILTER (
+                 WHERE Quantity < 0
+             ) AS negative_quantity_lines,
+             COUNT(*) FILTER (
+                 WHERE Price < 0
+             ) AS negative_price_lines,
+             COUNT(*) FILTER (
+                 WHERE "Customer ID" IS NULL
+             ) AS missing_customer_id_rows
+         FROM read_csv_auto(
+             'C:/Users/DELL/Documents/retail_transactions.csv'
+         );
+┌────────────┬─────────────────────────┬─────────────────────────┬──────────────────────┬──────────────────────────┐
+│ total_rows │ cancelled_invoice_lines │ negative_quantity_lines │ negative_price_lines │ missing_customer_id_rows │
+│   int64    │          int64          │          int64          │        int64         │          int64           │
+├────────────┼─────────────────────────┼─────────────────────────┼──────────────────────┼──────────────────────────┤
+│     541910 │                    9288 │                   10624 │                    2 │                   135080 │
+└────────────┴─────────────────────────┴─────────────────────────┴──────────────────────┴──────────────────────────┘
+memory D
+memory D WITH sales AS (
+             SELECT
+                 Invoice,
+                 Quantity,
+                 Price
+             FROM read_csv_auto(
+                 'C:/Users/DELL/Documents/retail_transactions.csv'
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+         )
+         SELECT
+             ROUND(SUM(Quantity * Price), 2) AS sales_revenue,
+             COUNT(DISTINCT Invoice) AS sales_orders,
+             ROUND(
+                 SUM(Quantity * Price)
+                 / NULLIF(COUNT(DISTINCT Invoice), 0),
+                 2
+             ) AS average_order_value
+         FROM sales;
+┌───────────────┬──────────────┬─────────────────────┐
+│ sales_revenue │ sales_orders │ average_order_value │
+│    double     │    int64     │       double        │
+├───────────────┼──────────────┼─────────────────────┤
+│   10666702.54 │        20726 │              514.65 │
+└───────────────┴──────────────┴─────────────────────┘
+memory D
+memory D SELECT
+             StockCode,
+             Description,
+             SUM(Quantity) AS total_quantity_sold,
+             ROUND(SUM(Quantity * Price), 2) AS product_revenue
+         FROM read_csv_auto(
+             'C:/Users/DELL/Documents/retail_transactions.csv'
+         )
+         WHERE NOT starts_with(Invoice, 'C')
+           AND Quantity > 0
+           AND Price >= 0
+         GROUP BY StockCode, Description
+         ORDER BY total_quantity_sold DESC
+         LIMIT 10;
+Invalid Input Error:
+CSV Error on Line: 38250
+Original Line:
+539492,gift_0001_40,Dotcomgiftshop Gift Voucher ?40.00,1,20-12-2010 10:14,34.04,,United Kingdom
+Invalid unicode (byte sequence mismatch) detected. This file is not utf-8 encoded.
+
+Possible Solution: Set the correct encoding, if available, to read this CSV File (e.g., encoding='UTF-16')
+Possible Solution: Enable ignore errors (ignore_errors=true) to skip this row
+
+  file = C:/Users/DELL/Documents/retail_transactions.csv
+  delimiter = , (Auto-Detected)
+  quote = " (Auto-Detected)
+  escape = " (Auto-Detected)
+  new_line = \r\n (Auto-Detected)
+  header = true (Auto-Detected)
+  skip_rows = 0 (Auto-Detected)
+  comment = (empty) (Auto-Detected)
+  strict_mode = true (Auto-Detected)
+  date_format =  (Auto-Detected)
+  timestamp_format =  (Auto-Detected)
+  null_padding = 0
+  sample_size = 20480
+  ignore_errors = false
+  all_varchar = 0
+
+
+memory D
+memory D SELECT
+             StockCode,
+             Description,
+             SUM(Quantity) AS total_quantity_sold,
+             ROUND(SUM(Quantity * Price), 2) AS product_revenue
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         )
+         WHERE NOT starts_with(Invoice, 'C')
+           AND Quantity > 0
+           AND Price >= 0
+         GROUP BY StockCode, Description
+         ORDER BY total_quantity_sold DESC
+         LIMIT 10;
+┌───────────┬────────────────────────────────────┬─────────────────────┬─────────────────┐
+│ StockCode │            Description             │ total_quantity_sold │ product_revenue │
+│  varchar  │              varchar               │       int128        │     double      │
+├───────────┼────────────────────────────────────┼─────────────────────┼─────────────────┤
+│ 23843     │ PAPER CRAFT , LITTLE BIRDIE        │               80995 │        168469.6 │
+│ 23166     │ MEDIUM CERAMIC TOP STORAGE JAR     │               78033 │        81700.92 │
+│ 84077     │ WORLD WAR 2 GLIDERS ASSTD DESIGNS  │               55047 │        13841.85 │
+│ 85099B    │ JUMBO BAG RED RETROSPOT            │               48478 │        94340.05 │
+│ 85123A    │ WHITE HANGING HEART T-LIGHT HOLDER │               37603 │       104340.29 │
+│ 22197     │ POPCORN HOLDER                     │               36761 │        34298.87 │
+│ 84879     │ ASSORTED COLOUR BIRD ORNAMENT      │               36461 │        59094.93 │
+│ 21212     │ PACK OF 72 RETROSPOT CAKE CASES    │               36419 │         21259.1 │
+│ 23084     │ RABBIT NIGHT LIGHT                 │               30788 │        66964.99 │
+│ 22492     │ MINI PAINT SET VINTAGE             │               26633 │        16937.82 │
+└───────────┴────────────────────────────────────┴─────────────────────┴─────────────────┘
+  10 rows                                                                      4 columns
+memory D
+memory D SELECT
+             STRFTIME(
+                 TRY_STRPTIME(InvoiceDate, '%d-%m-%Y %H:%M'),
+                 '%Y-%m'
+             ) AS sales_month,
+             ROUND(SUM(Quantity * Price), 2) AS monthly_revenue,
+             COUNT(DISTINCT Invoice) AS total_orders
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         )
+         WHERE NOT starts_with(Invoice, 'C')
+           AND Quantity > 0
+           AND Price >= 0
+         GROUP BY sales_month
+         HAVING sales_month IS NOT NULL
+         ORDER BY sales_month;
+┌─────────────┬─────────────────┬──────────────┐
+│ sales_month │ monthly_revenue │ total_orders │
+│   varchar   │     double      │    int64     │
+├─────────────┼─────────────────┼──────────────┤
+│ 2010-12     │       823746.14 │         1629 │
+│ 2011-01     │       691364.56 │         1120 │
+│ 2011-02     │       523631.89 │         1126 │
+│ 2011-03     │       717639.36 │         1531 │
+│ 2011-04     │       537808.62 │         1318 │
+│ 2011-05     │       770536.02 │         1731 │
+│ 2011-06     │        761739.9 │         1576 │
+│ 2011-07     │       719221.19 │         1540 │
+│ 2011-08     │       759138.38 │         1407 │
+│ 2011-09     │      1058590.17 │         1896 │
+│ 2011-10     │       1154979.3 │         2129 │
+│ 2011-11     │      1509496.33 │         2884 │
+│ 2011-12     │       638810.68 │          839 │
+└─────────────┴─────────────────┴──────────────┘
+  13 rows                            3 columns
+memory D
+
+
+
+
+
+
+
+
+
+
+                 encoding = 'latin-1',
+                 header = true,
+                 auto_detect = true
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+             GROUP BY sales_month
+             HAVING sales_month IS NOT NULL
+         ),
+         monthly_comparison AS (
+             SELECT
+                 sales_month,
+                 monthly_revenue,
+                 LAG(monthly_revenue) OVER (
+                     ORDER BY sales_month
+                 ) AS previous_month_revenue
+             FROM monthly_sales
+         )
+         SELECT
+             sales_month,
+             ROUND(monthly_revenue, 2) AS monthly_revenue,
+             ROUND(previous_month_revenue, 2) AS previous_month_revenue,
+             ROUND(
+                 100.0 * (monthly_revenue - previous_month_revenue)
+                 / NULLIF(previous_month_revenue, 0),
+                 2
+             ) AS mom_growth_percent
+         FROM monthly_comparison
+         ORDER BY sales_month;
+┌─────────────┬─────────────────┬────────────────────────┬────────────────────┐
+│ sales_month │ monthly_revenue │ previous_month_revenue │ mom_growth_percent │
+│   varchar   │     double      │         double         │       double       │
+├─────────────┼─────────────────┼────────────────────────┼────────────────────┤
+│ 2010-12     │       823746.14 │                   NULL │               NULL │
+│ 2011-01     │       691364.56 │              823746.14 │             -16.07 │
+│ 2011-02     │       523631.89 │              691364.56 │             -24.26 │
+│ 2011-03     │       717639.36 │              523631.89 │              37.05 │
+│ 2011-04     │       537808.62 │              717639.36 │             -25.06 │
+│ 2011-05     │       770536.02 │              537808.62 │              43.27 │
+│ 2011-06     │        761739.9 │              770536.02 │              -1.14 │
+│ 2011-07     │       719221.19 │               761739.9 │              -5.58 │
+│ 2011-08     │       759138.38 │              719221.19 │               5.55 │
+│ 2011-09     │      1058590.17 │              759138.38 │              39.45 │
+│ 2011-10     │       1154979.3 │             1058590.17 │               9.11 │
+│ 2011-11     │      1509496.33 │              1154979.3 │              30.69 │
+│ 2011-12     │       638810.68 │             1509496.33 │             -57.68 │
+└─────────────┴─────────────────┴────────────────────────┴────────────────────┘
+  13 rows                                                           4 columns
+memory D
+memory D SELECT
+             "Customer ID" AS customer_id,
+             ROUND(SUM(Quantity * Price), 2) AS customer_revenue,
+             COUNT(DISTINCT Invoice) AS total_orders
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         )
+         WHERE NOT starts_with(Invoice, 'C')
+           AND Quantity > 0
+           AND Price >= 0
+           AND "Customer ID" IS NOT NULL
+         GROUP BY "Customer ID"
+         ORDER BY customer_revenue DESC
+         LIMIT 10;
+┌─────────────┬──────────────────┬──────────────┐
+│ customer_id │ customer_revenue │ total_orders │
+│    int64    │      double      │    int64     │
+├─────────────┼──────────────────┼──────────────┤
+│       14646 │        280206.02 │           74 │
+│       18102 │         259657.3 │           60 │
+│       17450 │        194550.79 │           46 │
+│       16446 │         168472.5 │            2 │
+│       14911 │        143825.06 │          201 │
+│       12415 │        124914.53 │           21 │
+│       14156 │        117379.63 │           55 │
+│       17511 │         91062.38 │           31 │
+│       16029 │         81024.84 │           63 │
+│       12346 │          77183.6 │            1 │
+└─────────────┴──────────────────┴──────────────┘
+  10 rows                             3 columns
+memory D
+memory D SELECT
+             Country,
+             ROUND(SUM(Quantity * Price), 2) AS country_revenue,
+             COUNT(DISTINCT Invoice) AS total_orders
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         )
+         WHERE NOT starts_with(Invoice, 'C')
+           AND Quantity > 0
+           AND Price >= 0
+         GROUP BY Country
+         ORDER BY country_revenue DESC;
+┌──────────────────────┬─────────────────┬──────────────┐
+│       Country        │ country_revenue │ total_orders │
+│       varchar        │     double      │    int64     │
+├──────────────────────┼─────────────────┼──────────────┤
+│ United Kingdom       │      9025222.08 │        18784 │
+│ Netherlands          │       285446.34 │           95 │
+│ EIRE                 │       283453.96 │          288 │
+│ Germany              │       228867.14 │          457 │
+│ France               │       209733.11 │          392 │
+│ Australia            │       138521.31 │           57 │
+│ Spain                │        61577.11 │           90 │
+│ Switzerland          │         57089.9 │           54 │
+│ Belgium              │        41196.34 │           98 │
+│ Sweden               │        38378.33 │           36 │
+│ Japan                │        37416.37 │           19 │
+│ Norway               │        36165.44 │           36 │
+│ Portugal             │         33747.1 │           58 │
+│ Finland              │        22546.08 │           41 │
+│ Singapore            │        21279.29 │            7 │
+│ Channel Islands      │        20450.44 │           26 │
+│ Denmark              │        18955.34 │           18 │
+│ Italy                │        17483.24 │           38 │
+│ Hong Kong            │         15691.8 │           11 │
+│ Cyprus               │        13590.38 │           16 │
+│ Austria              │        10198.68 │           17 │
+│ Israel               │         8135.26 │            8 │
+│ Poland               │         7334.65 │           19 │
+│ Greece               │         4760.52 │            5 │
+│ Unspecified          │         4749.79 │           13 │
+│ Iceland              │          4310.0 │            7 │
+│ Canada               │         3666.38 │            6 │
+│ USA                  │         3580.39 │            5 │
+│ Malta                │         2725.59 │            5 │
+│ United Arab Emirates │         1902.28 │            3 │
+│ Lebanon              │         1693.88 │            1 │
+│ Lithuania            │         1661.06 │            4 │
+│ European Community   │         1300.25 │            4 │
+│ Brazil               │          1143.6 │            1 │
+│ RSA                  │         1002.31 │            1 │
+│ Czech Republic       │          826.74 │            2 │
+│ Bahrain              │          754.14 │            3 │
+│ Saudi Arabia         │          145.92 │            1 │
+└──────────────────────┴─────────────────┴──────────────┘
+  38 rows                                     3 columns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 WHERE NOT starts_with(Invoice, 'C')
+                   AND Quantity > 0
+                   AND Price >= 0
+                 GROUP BY sales_month
+                 HAVING sales_month IS NOT NULL
+             ),
+             monthly_growth AS (
+                 SELECT
+                     sales_month,
+                     monthly_revenue,
+                     total_orders,
+                     LAG(monthly_revenue) OVER (
+                         ORDER BY sales_month
+                     ) AS previous_month_revenue
+                 FROM monthly_sales
+             )
+             SELECT
+                 sales_month,
+                 ROUND(monthly_revenue, 2) AS monthly_revenue,
+                 total_orders,
+                 ROUND(
+                     100.0 * (monthly_revenue - previous_month_revenue)
+                     / NULLIF(previous_month_revenue, 0),
+                     2
+                 ) AS mom_growth_percent
+             FROM monthly_growth
+             ORDER BY sales_month
+         )
+         TO 'C:/Users/DELL/Documents/monthly_sales_kpis.csv'
+         (HEADER, DELIMITER ',');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 WHERE NOT starts_with(Invoice, 'C')
+                   AND Quantity > 0
+                   AND Price >= 0
+                 GROUP BY sales_month
+                 HAVING sales_month IS NOT NULL
+             ),
+             monthly_growth AS (
+                 SELECT
+                     sales_month,
+                     monthly_revenue,
+                     total_orders,
+                     LAG(monthly_revenue) OVER (
+                         ORDER BY sales_month
+                     ) AS previous_month_revenue
+                 FROM monthly_sales
+             )
+             SELECT
+                 sales_month,
+                 ROUND(monthly_revenue, 2) AS monthly_revenue,
+                 total_orders,
+                 ROUND(
+                     100.0 * (monthly_revenue - previous_month_revenue)
+                     / NULLIF(previous_month_revenue, 0),
+                     2
+                 ) AS mom_growth_percent
+             FROM monthly_growth
+             ORDER BY sales_month
+         )
+         TO 'C:/Users/DELL/Documents/monthly_sales_kpis.csv'
+         (HEADER, DELIMITER ',');
+memory D COPY (SELECT 1 AS test)
+         TO 'C:/Users/DELL/Documents/duckdb_test.csv'
+         (HEADER, DELIMITER ',');
+memory D SELECT 1;
+┌───────┐
+│   1   │
+│ int32 │
+├───────┤
+│     1 │
+└───────┘
+memory D COPY (SELECT 1 AS test)
+         TO 'C:/Users/DELL/Documents/duckdb_test.csv'
+         (HEADER, DELIMITER ',');
+memory D COPY (SELECT 1 AS test)
+         TO 'C:/Users/DELL/Documents/duckdb_test.csv'
+         (HEADER, DELIMITER ',');
+memory D COPY (SELECT 1 AS test)
+         TO 'C:/Users/DELL/Downloads/duckdb_test.csv'
+         (HEADER, DELIMITER ',');
+memory D SELECT current_setting('home_directory');
+┌───────────────────────────────────┐
+│ current_setting('home_directory') │
+│              varchar              │
+├───────────────────────────────────┤
+│                                   │
+└───────────────────────────────────┘
+memory D SELECT 'C:/Users/DELL/Documents/retail_transactions.csv' AS data_file;
+┌─────────────────────────────────────────────────┐
+│                    data_file                    │
+│                     varchar                     │
+├─────────────────────────────────────────────────┤
+│ C:/Users/DELL/Documents/retail_transactions.csv │
+└─────────────────────────────────────────────────┘
+memory D COPY (SELECT 1 AS test)
+         TO 'C:/Users/DELL/Documents/duckdb_test.csv'
+         (HEADER, DELIMITER ',');
+
+
+
+
+
+
+
+
+
+
+
+                 FROM read_csv(
+                     'C:/Users/DELL/Documents/retail_transactions.csv',
+                     encoding = 'latin-1',
+                     header = true,
+                     auto_detect = true
+                 )
+                 WHERE NOT starts_with(Invoice, 'C')
+                   AND Quantity > 0
+                   AND Price >= 0
+                 GROUP BY sales_month
+                 HAVING sales_month IS NOT NULL
+             )
+             SELECT
+                 sales_month,
+                 ROUND(monthly_revenue, 2) AS monthly_revenue,
+                 total_orders,
+                 ROUND(
+                     100.0 * (
+                         monthly_revenue
+                         - LAG(monthly_revenue) OVER (ORDER BY sales_month)
+                     ) / NULLIF(
+                         LAG(monthly_revenue) OVER (ORDER BY sales_month), 0
+                     ),
+                     2
+                 ) AS mom_growth_percent
+             FROM monthly_sales
+             ORDER BY sales_month
+         )
+         TO 'C:/Users/DELL/Documents/monthly_sales_kpis.csv'
+         (HEADER, DELIMITER ',');
+memory D COPY (
+             SELECT
+                 StockCode,
+                 Description,
+                 SUM(Quantity) AS total_quantity_sold,
+                 ROUND(SUM(Quantity * Price), 2) AS total_revenue
+             FROM read_csv(
+                 'C:/Users/DELL/Documents/retail_transactions.csv',
+                 encoding = 'latin-1',
+                 header = true,
+                 auto_detect = true
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+             GROUP BY StockCode, Description
+             ORDER BY total_quantity_sold DESC
+             LIMIT 10
+         )
+         TO 'C:/Users/DELL/Documents/top_products.csv'
+         (HEADER, DELIMITER ',');
+memory D COPY (
+             SELECT
+                 "Customer ID" AS customer_id,
+                 ROUND(SUM(Quantity * Price), 2) AS total_revenue,
+                 COUNT(DISTINCT Invoice) AS total_orders
+             FROM read_csv(
+                 'C:/Users/DELL/Documents/retail_transactions.csv',
+                 encoding = 'latin-1',
+                 header = true,
+                 auto_detect = true
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+               AND "Customer ID" IS NOT NULL
+             GROUP BY "Customer ID"
+             ORDER BY total_revenue DESC
+             LIMIT 10
+         )
+         TO 'C:/Users/DELL/Documents/top_customers.csv'
+         (HEADER, DELIMITER ',');
+memory D COPY (
+             SELECT
+                 Country,
+                 ROUND(SUM(Quantity * Price), 2) AS country_revenue,
+                 COUNT(DISTINCT Invoice) AS total_orders
+             FROM read_csv(
+                 'C:/Users/DELL/Documents/retail_transactions.csv',
+                 encoding = 'latin-1',
+                 header = true,
+                 auto_detect = true
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+             GROUP BY Country
+             ORDER BY country_revenue DESC
+         )
+         TO 'C:/Users/DELL/Documents/country_revenue.csv'
+         (HEADER, DELIMITER ',');
+memory D WITH customer_orders AS (
+             SELECT
+                 "Customer ID",
+                 COUNT(DISTINCT Invoice) AS order_count
+             FROM read_csv(
+                 'C:/Users/DELL/Documents/retail_transactions.csv',
+                 encoding = 'latin-1',
+                 header = true,
+                 auto_detect = true
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+               AND "Customer ID" IS NOT NULL
+             GROUP BY "Customer ID"
+         )
+         SELECT
+             COUNT(*) AS total_customers,
+             SUM(CASE WHEN order_count > 1 THEN 1 ELSE 0 END)
+                 AS repeat_customers,
+             ROUND(
+                 100.0 * SUM(CASE WHEN order_count > 1 THEN 1 ELSE 0 END)
+                 / NULLIF(COUNT(*), 0),
+                 2
+             ) AS repeat_customer_rate_percent
+         FROM customer_orders;
+Binder Error:
+Referenced column "Invoice" not found in FROM clause!
+Candidate bindings: "column0"
+
+LINE 11:     WHERE NOT starts_with(Invoice, 'C')
+                                   ^^^^^^^
+memory D SELECT *
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         )
+         LIMIT 5;
+┌─────────┐
+│ column0 │
+│ varchar │
+└─────────┘
+  0 rows
+memory D SELECT *
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions.csv',
+             header = false,
+             auto_detect = false,
+             columns = {'column0': 'VARCHAR'},
+             encoding = 'latin-1'
+         )
+         LIMIT 5;
+┌─────────┐
+│ column0 │
+│ varchar │
+├─────────┤
+│ NULL    │
+└─────────┘
+memory D SELECT *
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         )
+         LIMIT 5;
+┌───────────────┬────────────────┬──────────────┬─────────────────┬─────────────────┬─────────────────────┐
+│ Total Revenue │ Total Quantity │ Total Orders │ Total Customers │ Total Countries │ Average Order Value │
+│    double     │     int64      │    int64     │      int64      │      int64      │       double        │
+├───────────────┼────────────────┼──────────────┼─────────────────┼─────────────────┼─────────────────────┤
+│   1234428.291 │         700543 │            1 │               1 │               1 │         1234428.291 │
+└───────────────┴────────────────┴──────────────┴─────────────────┴─────────────────┴─────────────────────┘
+memory D SELECT *
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         )
+         LIMIT 5;
+┌─────────┬───────────┬─────────────────────────────────────┬──────────┬──────────────────┬────────┬─────────────┬────────────────┐
+│ Invoice │ StockCode │             Description             │ Quantity │   InvoiceDate    │ Price  │ Customer ID │    Country     │
+│ varchar │  varchar  │               varchar               │  int64   │     varchar      │ double │    int64    │    varchar     │
+├─────────┼───────────┼─────────────────────────────────────┼──────────┼──────────────────┼────────┼─────────────┼────────────────┤
+│ 536365  │ 85123A    │ WHITE HANGING HEART T-LIGHT HOLDER  │        6 │ 01-12-2010 08:26 │   2.55 │       17850 │ United Kingdom │
+│ 536365  │ 71053     │ WHITE METAL LANTERN                 │        6 │ 01-12-2010 08:26 │   3.39 │       17850 │ United Kingdom │
+│ 536365  │ 84406B    │ CREAM CUPID HEARTS COAT HANGER      │        8 │ 01-12-2010 08:26 │   2.75 │       17850 │ United Kingdom │
+│ 536365  │ 84029G    │ KNITTED UNION FLAG HOT WATER BOTTLE │        6 │ 01-12-2010 08:26 │   3.39 │       17850 │ United Kingdom │
+│ 536365  │ 84029E    │ RED WOOLLY HOTTIE WHITE HEART.      │        6 │ 01-12-2010 08:26 │   3.39 │       17850 │ United Kingdom │
+└─────────┴───────────┴─────────────────────────────────────┴──────────┴──────────────────┴────────┴─────────────┴────────────────┘
+memory D WITH customer_orders AS (
+             SELECT
+                 "Customer ID",
+                 COUNT(DISTINCT Invoice) AS order_count
+             FROM read_csv(
+                 'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+                 encoding = 'latin-1',
+                 header = true,
+                 auto_detect = true
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+               AND "Customer ID" IS NOT NULL
+             GROUP BY "Customer ID"
+         )
+         SELECT
+             COUNT(*) AS total_customers,
+             SUM(CASE WHEN order_count > 1 THEN 1 ELSE 0 END)
+                 AS repeat_customers,
+             ROUND(
+                 100.0 * SUM(CASE WHEN order_count > 1 THEN 1 ELSE 0 END)
+                 / NULLIF(COUNT(*), 0),
+                 2
+             ) AS repeat_customer_rate_percent
+         FROM customer_orders;
+┌─────────────────┬──────────────────┬──────────────────────────────┐
+│ total_customers │ repeat_customers │ repeat_customer_rate_percent │
+│      int64      │      int128      │            double            │
+├─────────────────┼──────────────────┼──────────────────────────────┤
+│            4339 │             2845 │                        65.57 │
+└─────────────────┴──────────────────┴──────────────────────────────┘
+memory D WITH monthly_sales AS (
+             SELECT
+                 STRFTIME(
+                     TRY_STRPTIME(InvoiceDate, '%d-%m-%Y %H:%M'),
+                     '%Y-%m'
+                 ) AS sales_month,
+                 SUM(Quantity * Price) AS monthly_revenue
+             FROM read_csv(
+                 'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+                 encoding = 'latin-1',
+                 header = true,
+                 auto_detect = true
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+             GROUP BY sales_month
+         )
+         SELECT
+             sales_month,
+             ROUND(monthly_revenue, 2) AS monthly_revenue,
+             ROUND(
+                 SUM(monthly_revenue) OVER (
+                     ORDER BY sales_month
+                     ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+                 ),
+                 2
+             ) AS running_total_revenue
+         FROM monthly_sales
+         WHERE sales_month IS NOT NULL
+         ORDER BY sales_month;
+┌─────────────┬─────────────────┬───────────────────────┐
+│ sales_month │ monthly_revenue │ running_total_revenue │
+│   varchar   │     double      │        double         │
+├─────────────┼─────────────────┼───────────────────────┤
+│ 2010-12     │       823746.14 │             823746.14 │
+│ 2011-01     │       691364.56 │             1515110.7 │
+│ 2011-02     │       523631.89 │            2038742.59 │
+│ 2011-03     │       717639.36 │            2756381.95 │
+│ 2011-04     │       537808.62 │            3294190.57 │
+│ 2011-05     │       770536.02 │            4064726.59 │
+│ 2011-06     │        761739.9 │            4826466.49 │
+│ 2011-07     │       719221.19 │            5545687.68 │
+│ 2011-08     │       759138.38 │            6304826.06 │
+│ 2011-09     │      1058590.17 │            7363416.23 │
+│ 2011-10     │       1154979.3 │            8518395.53 │
+│ 2011-11     │      1509496.33 │           10027891.86 │
+│ 2011-12     │       638810.68 │           10666702.54 │
+└─────────────┴─────────────────┴───────────────────────┘
+  13 rows                                     3 columns
+memory D SELECT
+             "Customer ID",
+             STRFTIME(
+                 MIN(
+                     TRY_STRPTIME(
+                         InvoiceDate,
+                         '%d-%m-%Y %H:%M'
+                     )
+                 ),
+                 '%Y-%m'
+             ) AS first_purchase_month
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         )
+         WHERE NOT starts_with(Invoice, 'C')
+           AND Quantity > 0
+           AND Price >= 0
+           AND "Customer ID" IS NOT NULL
+         GROUP BY "Customer ID"
+         ORDER BY first_purchase_month, "Customer ID";
+┌─────────────┬──────────────────────┐
+│ Customer ID │ first_purchase_month │
+│    int64    │       varchar        │
+├─────────────┼──────────────────────┤
+│       12347 │ 2010-12              │
+│       12348 │ 2010-12              │
+│       12370 │ 2010-12              │
+│       12377 │ 2010-12              │
+│       12383 │ 2010-12              │
+│       12386 │ 2010-12              │
+│       12395 │ 2010-12              │
+│       12417 │ 2010-12              │
+│       12423 │ 2010-12              │
+│       12427 │ 2010-12              │
+│       12429 │ 2010-12              │
+│       12431 │ 2010-12              │
+│       12433 │ 2010-12              │
+│       12441 │ 2010-12              │
+│       12471 │ 2010-12              │
+│       12472 │ 2010-12              │
+│       12476 │ 2010-12              │
+│       12481 │ 2010-12              │
+│       12494 │ 2010-12              │
+│       12515 │ 2010-12              │
+│         ·   │    ·                 │
+│         ·   │    ·                 │
+│         ·   │    ·                 │
+│       15318 │ 2011-12              │
+│       15471 │ 2011-12              │
+│       15520 │ 2011-12              │
+│       15539 │ 2011-12              │
+│       15773 │ 2011-12              │
+│       15904 │ 2011-12              │
+│       15992 │ 2011-12              │
+│       16000 │ 2011-12              │
+│       16528 │ 2011-12              │
+│       16535 │ 2011-12              │
+│       16569 │ 2011-12              │
+│       16597 │ 2011-12              │
+│       16789 │ 2011-12              │
+│       16988 │ 2011-12              │
+│       17383 │ 2011-12              │
+│       17914 │ 2011-12              │
+│       17936 │ 2011-12              │
+│       17942 │ 2011-12              │
+│       18015 │ 2011-12              │
+│       18174 │ 2011-12              │
+└─────────────┴──────────────────────┘
+  4339 rows (40 shown)     2 columns
+memory D WITH customer_first_purchase AS (
+             SELECT
+                 "Customer ID",
+                 DATE_TRUNC(
+                     'month',
+                     MIN(TRY_STRPTIME(InvoiceDate, '%d-%m-%Y %H:%M'))
+                 ) AS first_purchase_month
+             FROM read_csv(
+                 'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+                 encoding = 'latin-1',
+                 header = true,
+                 auto_detect = true
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+               AND "Customer ID" IS NOT NULL
+             GROUP BY "Customer ID"
+         )
+         SELECT
+             STRFTIME(first_purchase_month, '%Y-%m') AS cohort_month,
+             COUNT(*) AS new_customers
+         FROM customer_first_purchase
+         GROUP BY first_purchase_month
+         ORDER BY first_purchase_month;
+┌──────────────┬───────────────┐
+│ cohort_month │ new_customers │
+│   varchar    │     int64     │
+├──────────────┼───────────────┤
+│ 2010-12      │           885 │
+│ 2011-01      │           417 │
+│ 2011-02      │           380 │
+│ 2011-03      │           452 │
+│ 2011-04      │           300 │
+│ 2011-05      │           284 │
+│ 2011-06      │           242 │
+│ 2011-07      │           188 │
+│ 2011-08      │           169 │
+│ 2011-09      │           299 │
+│ 2011-10      │           358 │
+│ 2011-11      │           324 │
+│ 2011-12      │            41 │
+└──────────────┴───────────────┘
+  13 rows            2 columns
+memory D COPY (
+             WITH customer_first_purchase AS (
+                 SELECT
+                     "Customer ID",
+                     DATE_TRUNC(
+                         'month',
+                         MIN(TRY_STRPTIME(InvoiceDate, '%d-%m-%Y %H:%M'))
+                     ) AS first_purchase_month
+                 FROM read_csv(
+                     'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+                     encoding = 'latin-1',
+                     header = true,
+                     auto_detect = true
+                 )
+                 WHERE NOT starts_with(Invoice, 'C')
+                   AND Quantity > 0
+                   AND Price >= 0
+                   AND "Customer ID" IS NOT NULL
+                 GROUP BY "Customer ID"
+             )
+             SELECT
+                 STRFTIME(first_purchase_month, '%Y-%m') AS cohort_month,
+                 COUNT(*) AS new_customers
+             FROM customer_first_purchase
+             GROUP BY first_purchase_month
+             ORDER BY first_purchase_month
+         )
+         TO 'C:/Users/DELL/Documents/customer_cohort_summary.csv'
+         (HEADER, DELIMITER ',');
+memory D SELECT
+             MIN(TRY_STRPTIME(InvoiceDate, '%d-%m-%Y %H:%M')) AS first_transaction_date,
+             MAX(TRY_STRPTIME(InvoiceDate, '%d-%m-%Y %H:%M')) AS last_transaction_date
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         );
+┌────────────────────────┬───────────────────────┐
+│ first_transaction_date │ last_transaction_date │
+│       timestamp        │       timestamp       │
+├────────────────────────┼───────────────────────┤
+│ 2010-12-01 08:26:00    │ 2011-12-09 12:50:00   │
+└────────────────────────┴───────────────────────┘
+memory D SELECT
+             ROUND(SUM(Quantity * Price), 2) AS total_revenue,
+             SUM(Quantity) AS total_quantity,
+             COUNT(DISTINCT Invoice) AS total_orders,
+             COUNT(DISTINCT "Customer ID") AS total_customers,
+             COUNT(DISTINCT Country) AS total_countries,
+             ROUND(
+                 SUM(Quantity * Price) / COUNT(DISTINCT Invoice),
+                 2
+             ) AS average_order_value
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         )
+         WHERE NOT starts_with(Invoice, 'C')
+           AND Quantity > 0
+           AND Price >= 0;
+┌───────────────┬────────────────┬──────────────┬─────────────────┬─────────────────┬─────────────────────┐
+│ total_revenue │ total_quantity │ total_orders │ total_customers │ total_countries │ average_order_value │
+│    double     │     int128     │    int64     │      int64      │      int64      │       double        │
+├───────────────┼────────────────┼──────────────┼─────────────────┼─────────────────┼─────────────────────┤
+│   10666702.54 │        5660980 │        20726 │            4339 │              38 │              514.65 │
+└───────────────┴────────────────┴──────────────┴─────────────────┴─────────────────┴─────────────────────┘
+memory D WITH customer_orders AS (
+             SELECT
+                 "Customer ID",
+                 COUNT(DISTINCT Invoice) AS order_count
+             FROM read_csv(
+                 'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+                 encoding = 'latin-1',
+                 header = true,
+                 auto_detect = true
+             )
+             WHERE NOT starts_with(Invoice, 'C')
+               AND Quantity > 0
+               AND Price >= 0
+               AND "Customer ID" IS NOT NULL
+             GROUP BY "Customer ID"
+         )
+         SELECT
+             COUNT(*) AS total_customers,
+             SUM(CASE WHEN order_count > 1 THEN 1 ELSE 0 END)
+                 AS repeat_customers,
+             ROUND(
+                 100.0 * SUM(CASE WHEN order_count > 1 THEN 1 ELSE 0 END)
+                 / COUNT(*),
+                 2
+             ) AS repeat_customer_rate_percent
+         FROM customer_orders;
+┌─────────────────┬──────────────────┬──────────────────────────────┐
+│ total_customers │ repeat_customers │ repeat_customer_rate_percent │
+│      int64      │      int128      │            double            │
+├─────────────────┼──────────────────┼──────────────────────────────┤
+│            4339 │             2845 │                        65.57 │
+└─────────────────┴──────────────────┴──────────────────────────────┘
+memory D SELECT
+             MIN(TRY_STRPTIME(InvoiceDate, '%d-%m-%Y %H:%M')) AS first_date,
+             MAX(TRY_STRPTIME(InvoiceDate, '%d-%m-%Y %H:%M')) AS last_date
+         FROM read_csv(
+             'C:/Users/DELL/Documents/retail_transactions_fixed.csv',
+             encoding = 'latin-1',
+             header = true,
+             auto_detect = true
+         );
+┌─────────────────────┬─────────────────────┐
+│     first_date      │      last_date      │
+│      timestamp      │      timestamp      │
+├─────────────────────┼─────────────────────┤
+│ 2010-12-01 08:26:00 │ 2011-12-09 12:50:00 │
+└─────────────────────┴─────────────────────┘
+
