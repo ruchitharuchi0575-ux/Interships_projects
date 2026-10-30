@@ -1,5 +1,4 @@
 Date, Hours, What I Learn, What I Work.
-Date, Hours, What I Learn, What I Work.
 17 October 2026	4	Learned the basics of retail sales data and KPI analysis.	Reviewed the project objective and explored the retail transaction dataset.
 18 October 2026	2 Learned about CSV structure, columns, and data quality.	Inspected the dataset and worked with the corrected transaction CSV.
 19 October 2026	1	Learned how to load CSV data into DuckDB and handle date formats.	Loaded the dataset and checked transaction dates and data fields.
