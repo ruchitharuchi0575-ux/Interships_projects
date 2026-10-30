@@ -1,1 +1,15 @@
 Date, Hours, What I Learn, What I Work.
+Date, Hours, What I Learn, What I Work.
+17 October 2026	4	Learned the basics of retail sales data and KPI analysis.	Reviewed the project objective and explored the retail transaction dataset.
+18 October 2026	2 Learned about CSV structure, columns, and data quality.	Inspected the dataset and worked with the corrected transaction CSV.
+19 October 2026	1	Learned how to load CSV data into DuckDB and handle date formats.	Loaded the dataset and checked transaction dates and data fields.
+20 October 2026	1	Learned SQL aggregation functions for calculating KPIs.	Calculated total revenue, quantity, orders, customers, countries, and average order value.
+21 October 2026	1	Learned monthly sales analysis and the LAG() function.	Calculated monthly revenue and month-over-month growth.
+22 October 2026	2	Learned how to calculate cumulative totals using SQL window functions.	Prepared the running total of monthly revenue.
+23 October 2026	4	Learned product ranking and sales quantity analysis.	Identified the top 10 products by quantity sold.
+24 October 2026	4	Learned customer revenue analysis and order-count comparison.	Analyzed the top customers by revenue.
+25 October 2026	2	Learned how to compare sales performance across countries.	Calculated country-wise revenue and order counts.
+26 October 2026	4	Learned repeat-customer analysis and customer acquisition concepts.	Calculated the repeat customer rate and prepared the customer cohort summary.
+27 October 2026	4	Learned how to summarize KPIs and visualize trends in Excel.	Updated the KPI Summary and created dashboard charts.
+28 October 2026	4	Learned how to validate charts and turn findings into business recommendations.	Corrected the monthly revenue chart and prepared business recommendations.
+29 October 2026	4	Learned project documentation and reporting practices.	Worked on the README and SQL analysis report and reviewed project findings.
