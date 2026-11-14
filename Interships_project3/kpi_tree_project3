@@ -1,0 +1,50 @@
+# Project 3: Bank Customer Churn Prediction KPI Tree
+
+## 1. Customer Churn Performance (Business Risk)
+├── Total Customers
+├── Actual Churned Customers
+├── Actual Churn Rate (%)
+├── Retained Customers
+└── Customer Retention Rate (%)
+
+## 2. Customer Risk Analysis (Churn Behaviour)
+├── High-Risk Customers
+├── Medium-Risk Customers
+├── Low-Risk Customers
+└── Churn Risk Distribution (%)
+    ├── Churn Rate by Geography
+    ├── Churn Rate by Gender
+    ├── Churn Rate by Membership Status
+    └── Churn Rate by Number of Products
+
+## 3. Machine Learning Model Performance (Prediction Quality)
+├── Model Accuracy (%)
+├── Model Precision (%)
+├── Model Recall (%)
+├── F1-Score (%)
+└── ROC-AUC Score
+    ├── Logistic Regression Model
+    ├── Decision Tree Model
+    └── Balanced Decision Tree Model
+
+## 4. Churn Prediction (Customer Identification)
+├── Churn Probability (%)
+├── Predicted Churn Customers
+├── Predicted High-Risk Customers
+├── Prediction Threshold
+└── Customer Risk Classification
+    ├── Low Risk
+    ├── Medium Risk
+    └── High Risk
+
+## 5. Retention Strategy & Business Impact (Customer Loyalty)
+├── High-Risk Customers Targeted
+├── Offer Acceptance Rate (%)
+├── Estimated Offer Acceptances
+├── Estimated Customers Retained
+└── Retention Scenario Analysis
+    ├── Offer Acceptance Rate Assumption (%)
+    └── Assumed Retention Success Rate (%)
+
+---
+
