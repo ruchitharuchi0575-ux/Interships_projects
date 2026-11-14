@@ -1,0 +1,45 @@
+# Project 2: Customer Segmentation & Retention KPI Tree
+
+## 1. Customer Value & RFM Analysis (Customer Behaviour)
+├── Recency (Days Since Last Purchase)
+├── Frequency (Number of Purchases)
+├── Monetary Value (Total Customer Spending)
+└── Customer RFM Score
+    ├── Recency Score
+    ├── Frequency Score
+    └── Monetary Score
+
+## 2. Customer Segmentation (Customer Classification)
+├── Total Customers Analysed
+├── Loyal Customers
+├── At-Risk Customers
+├── Recent Customers
+├── Big Spenders
+└── Other Customers
+    ├── Number of Customers per Segment
+    └── Revenue Contribution per Segment (£)
+
+## 3. Customer Retention (Loyalty & Repeat Purchases)
+├── Customer Retention Rate (%)
+├── Repeat Purchase Rate (%)
+├── Repeat Customer Count
+├── Customer Purchase Frequency
+└── At-Risk Customer Percentage (%)
+    ├── Customers Retained by Cohort (%)
+    └── Customer Retention Across Months (%)
+
+## 4. Cohort Analysis (Customer Lifecycle)
+├── Monthly Customer Acquisition
+├── Cohort Customer Count
+├── Monthly Cohort Retention Rate (%)
+├── Customer Activity Over Time
+└── Revenue by Customer Cohort (£)
+
+## 5. Retention Strategy (Business Improvement)
+├── Loyalty Rewards for Loyal Customers
+├── Personalised Offers for At-Risk Customers
+├── Welcome Offers for Recent Customers
+└── Premium Benefits for Big Spenders
+
+---
+
