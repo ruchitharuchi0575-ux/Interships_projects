@@ -1,15 +1,39 @@
 Date, Hours, What I Learn, What I Work.
-17 October 2026	4	Learned the basics of retail sales data and KPI analysis.	Reviewed the project objective and explored the retail transaction dataset.
-18 October 2026	2 Learned about CSV structure, columns, and data quality.	Inspected the dataset and worked with the corrected transaction CSV.
-19 October 2026	1	Learned how to load CSV data into DuckDB and handle date formats.	Loaded the dataset and checked transaction dates and data fields.
-20 October 2026	1	Learned SQL aggregation functions for calculating KPIs.	Calculated total revenue, quantity, orders, customers, countries, and average order value.
-21 October 2026	1	Learned monthly sales analysis and the LAG() function.	Calculated monthly revenue and month-over-month growth.
-22 October 2026	2	Learned how to calculate cumulative totals using SQL window functions.	Prepared the running total of monthly revenue.
-23 October 2026	4	Learned product ranking and sales quantity analysis.	Identified the top 10 products by quantity sold.
-24 October 2026	4	Learned customer revenue analysis and order-count comparison.	Analyzed the top customers by revenue.
-25 October 2026	2	Learned how to compare sales performance across countries.	Calculated country-wise revenue and order counts.
-26 October 2026	4	Learned repeat-customer analysis and customer acquisition concepts.	Calculated the repeat customer rate and prepared the customer cohort summary.
-27 October 2026	4	Learned how to summarize KPIs and visualize trends in Excel.	Updated the KPI Summary and created dashboard charts.
-28 October 2026	4	Learned how to validate charts and turn findings into business recommendations.	Corrected the monthly revenue chart and prepared business recommendations.
-29 October 2026	4	Learned project documentation and reporting practices.	Worked on the README and SQL analysis report and reviewed project findings.
-Total hours =36 hours
+
+# Member 2 – Internship Timesheet
+**Internship Period:** 17 October 2026 – 13 November 2026  
+**Role:** Excel, Data Visualisation, Power BI and Tableau  
+**Total Scheduled Hours:** 98
+
+| Date | Hours | What I Learn | What I Work |
+|---|---:|---|---|
+| 17-10-2026 | 4 | Internship workflow, project objectives and GitHub basics | Set up project workspace and reviewed internship requirements |
+| 18-10-2026 | 2 | Data analytics concepts and KPI trees | Identified business metrics and reporting requirements |
+| 19-10-2026 | 4 | Excel formulas and data organisation | Worked on spreadsheet calculations and formatting |
+| 20-10-2026 | 4 | Excel what-if analysis | Prepared revenue scenarios and business calculations |
+| 21-10-2026 | 4 | SQL reporting concepts | Studied how SQL supports business reporting |
+| 22-10-2026 | 4 | Pivot tables and KPI reporting | Created sales summaries and pivot tables |
+| 23-10-2026 | 4 | Excel charts and data visualisation | Prepared monthly revenue and top-product charts |
+| 24-10-2026 | 4 | Dashboard design principles | Organised KPI summaries and dashboard visuals |
+| 25-10-2026 | 2 | Data quality and reporting checks | Reviewed spreadsheet outputs and checked data consistency |
+| 26-10-2026 | 4 | Python data analysis concepts | Explored the Online Retail II dataset and analysis outputs |
+| 27-10-2026 | 4 | Data cleaning and documentation | Prepared and reviewed the data cleaning log |
+| 28-10-2026 | 4 | RFM analysis and customer segmentation | Reviewed customer segments and summarised results |
+| 29-10-2026 | 4 | Cohort analysis and retention metrics | Prepared cohort tables and retention visualisations |
+| 30-10-2026 | 4 | A/B testing and funnel analysis | Reviewed customer behaviour and reporting metrics |
+| 31-10-2026 | 4 | Customer segmentation and retention reporting | Prepared customer segment summaries and charts |
+| 01-11-2026 | 2 | Customer retention planning | Worked on customer retention recommendations |
+| 02-11-2026 | 4 | Predictive analytics concepts | Studied churn prediction and its business applications |
+| 03-11-2026 | 4 | Classification and model evaluation concepts | Reviewed churn analysis results and evaluation metrics |
+| 04-11-2026 | 4 | Data visualisation for predictive analytics | Reviewed churn patterns by customer category |
+| 05-11-2026 | 4 | Power BI data modelling | Imported and organised churn prediction data |
+| 06-11-2026 | 4 | DAX measures and what-if analysis | Created dashboard measures and retention scenario calculations |
+| 07-11-2026 | 4 | Power BI dashboard and Tableau visualisation | Developed churn dashboard visuals and prepared Tableau views |
+| 08-11-2026 | 0 | Deepavali holiday | Official internship rest day |
+| 09-11-2026 | 0 | Deepavali holiday | Official internship rest day |
+| 10-11-2026 | 4 | Capstone project planning and dashboard requirements | Reviewed project objectives and identified dashboard KPIs |
+| 11-11-2026 | 4 | Data visualisation and business diagnosis | Reviewed project data and prepared summary visuals |
+| 12-11-2026 | 4 | Business recommendations and dashboard insights | Prepared recommendations based on analysis results |
+| 13-11-2026 | 4 | Documentation and GitHub workflow | Organised project deliverables and reviewed documentation |
+
+**Total Scheduled Hours: 98**
