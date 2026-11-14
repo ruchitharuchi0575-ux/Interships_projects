@@ -1,0 +1,16 @@
+# Overall Internship KPI Tree Summary
+
+## 1. Project 1 – Online Retail Sales KPI Analysis
+├── Main Objective: Improve Sales Performance
+├── Main KPI: Total Sales Revenue
+└── Tools: Excel and DuckDB SQL
+
+## 2. Project 2 – Customer Segmentation & Retention
+├── Main Objective: Improve Customer Retention
+├── Main KPI: Customer Retention Rate
+└── Tools: Python, Pandas and RFM Analysis
+
+## 3. Project 3 – Bank Customer Churn Prediction
+├── Main Objective: Reduce Customer Churn
+├── Main KPI: Customer Churn Rate
+└── Tools: Python, Machine Learning, Power BI and Tableau
