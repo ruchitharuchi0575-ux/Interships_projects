@@ -1,0 +1,38 @@
+# Project 1: Online Retail Sales KPI Tree
+
+## 1. Sales Revenue & Growth (Business Performance)
+├── Total Sales Revenue (£)
+├── Monthly Revenue Growth (%)
+├── Month-on-Month Revenue Change (%)
+├── Total Number of Orders
+└── Average Order Value (AOV)
+    ├── Revenue per Order (£)
+    └── Average Items per Order
+
+## 2. Product Performance (Sales Contribution)
+├── Total Quantity Sold
+├── Top 10 Products by Revenue
+├── Top 10 Products by Quantity
+├── Product Revenue Contribution (%)
+└── Best-Selling Product Categories
+    ├── Product-Wise Revenue (£)
+    └── Product-Wise Quantity Sold
+
+## 3. Customer Performance (Customer Value & Loyalty)
+├── Total Unique Customers
+├── Repeat Customer Rate (%)
+├── Revenue per Customer (£)
+├── Top 10 Customers by Revenue
+└── Customer Purchase Behaviour
+    ├── Number of Repeat Customers
+    └── Average Orders per Customer
+
+## 4. Market Performance (Geographical Sales Analysis)
+├── Total Countries Served
+├── Revenue by Country (£)
+├── Orders by Country
+├── Top 10 Countries by Revenue
+└── Country Contribution to Total Revenue (%)
+
+---
+
