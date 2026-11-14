@@ -1,14 +1,40 @@
 Date, Hours, What I Learn, What I Work.
-17 October 2026	4	Learned the basics of retail sales data and KPI analysis.	Reviewed the project objective and explored the retail transaction dataset.
-18 October 2026	2 Learned about CSV structure, columns, and data quality.	Inspected the dataset and worked with the corrected transaction CSV.
-19 October 2026	1	Learned how to load CSV data into DuckDB and handle date formats.	Loaded the dataset and checked transaction dates and data fields.
-20 October 2026	1	Learned SQL aggregation functions for calculating KPIs.	Calculated total revenue, quantity, orders, customers, countries, and average order value.
-21 October 2026	1	Learned monthly sales analysis and the LAG() function.	Calculated monthly revenue and month-over-month growth.
-22 October 2026	2	Learned how to calculate cumulative totals using SQL window functions.	Prepared the running total of monthly revenue.
-23 October 2026	4	Learned product ranking and sales quantity analysis.	Identified the top 10 products by quantity sold.
-24 October 2026	4	Learned customer revenue analysis and order-count comparison.	Analyzed the top customers by revenue.
-25 October 2026	2	Learned how to compare sales performance across countries.	Calculated country-wise revenue and order counts.
-26 October 2026	4	Learned repeat-customer analysis and customer acquisition concepts.	Calculated the repeat customer rate and prepared the customer cohort summary.
-27 October 2026	4	Learned how to summarize KPIs and visualize trends in Excel.	Updated the KPI Summary and created dashboard charts.
-28 October 2026	4	Learned how to validate charts and turn findings into business recommendations.	Corrected the monthly revenue chart and prepared business recommendations.
-29 October 2026	4	Learned project documentation and reporting practices.	Worked on the README and SQL analysis report and reviewed project findings.
+# Member 1 – Internship Timesheet
+**Internship Period:** 17 October 2026 – 13 November 2026  
+**Role:** Data Analysis, SQL and Machine Learning  
+**Total Scheduled Hours:** 98
+
+| Date | Hours | What I Learn | What I Work |
+|---|---:|---|---|
+| 17-10-2026 | 4 | Internship workflow, project objectives and GitHub basics | Set up project workspace and reviewed internship requirements |
+| 18-10-2026 | 2 | Types of data analytics and KPI concepts | Identified business objectives and important KPIs |
+| 19-10-2026 | 4 | Excel formulas and data calculations | Practised sales calculations and data analysis |
+| 20-10-2026 | 4 | What-if analysis and business scenarios | Worked on revenue calculations and scenario analysis |
+| 21-10-2026 | 4 | SQL basics and database concepts | Practised SQL queries using SELECT, WHERE and GROUP BY |
+| 22-10-2026 | 4 | SQL aggregations and filtering | Analysed sales transactions using SQL |
+| 23-10-2026 | 4 | SQL joins and window functions | Prepared queries for product and customer analysis |
+| 24-10-2026 | 4 | Business KPI analysis | Calculated revenue, orders, quantity and average order value |
+| 25-10-2026 | 2 | Data cleaning and quality checks | Reviewed missing values, duplicates and invalid records |
+| 26-10-2026 | 4 | Data analysis using Python and Pandas | Loaded and explored the Online Retail II dataset |
+| 27-10-2026 | 4 | Data preprocessing techniques | Cleaned transaction records and handled missing values |
+| 28-10-2026 | 4 | Customer analysis and RFM concepts | Calculated Recency, Frequency and Monetary values |
+| 29-10-2026 | 4 | Cohort analysis and customer retention | Prepared customer cohort and retention analysis |
+| 30-10-2026 | 4 | A/B testing and funnel analysis concepts | Reviewed customer behaviour and retention metrics |
+| 31-10-2026 | 4 | Customer segmentation techniques | Developed customer segments using RFM analysis |
+| 01-11-2026 | 2 | Customer retention strategies | Reviewed segment results and retention opportunities |
+| 02-11-2026 | 4 | Predictive analytics and regression concepts | Studied predictive modelling techniques |
+| 03-11-2026 | 4 | Classification algorithms and model evaluation | Prepared data for bank customer churn prediction |
+| 04-11-2026 | 4 | Decision trees and clustering concepts | Explored churn patterns and trained classification models |
+| 05-11-2026 | 4 | Model evaluation metrics | Evaluated models using accuracy, precision, recall and F1-score |
+| 06-11-2026 | 4 | Churn probability and threshold selection | Compared model thresholds and prepared churn predictions |
+| 07-11-2026 | 4 | Dashboard KPIs and business interpretation | Prepared model outputs and shared analysis results for dashboard development |
+| 08-11-2026 | 0 | Deepavali holiday | Official internship rest day |
+| 09-11-2026 | 0 | Deepavali holiday | Official internship rest day |
+| 10-11-2026 | 4 | Capstone project planning and KPI selection | Reviewed capstone objectives and identified required data |
+| 11-11-2026 | 4 | Data-driven business diagnosis | Analysed project data and identified important business patterns |
+| 12-11-2026 | 4 | Predictive insights and recommendations | Reviewed analysis results and prepared business recommendations |
+| 13-11-2026 | 4 | Project documentation and GitHub workflow | Organised project files, documented work and reviewed deliverables |
+
+**Total Scheduled Hours: 98**
+
+---
